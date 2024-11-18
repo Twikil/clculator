@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+ <style>
+ .calculator {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    gap: 10px;
+  }
+  
+  button {
+    width: 20%;
+    padding:30px;
+    font-size: 20px;
+   
+  }
+  
+  #result {
+    width: 30%;
+    padding: 10px;
+    text-align: right;
+    font-size: 24px;
+    
+    
+  }
+  </style>
+</head>
+<body>
+  <input style="border:solid black 10px;border-radius: 5px; " type="text" id="result">
+  <div class="calculator">
+    <button style="background-color:green;font-weight:bolder;" onclick="addToResult('7')">7</button>
+    <button style="background-color:green;font-weight:bolder;"onclick="addToResult('8')">8</button>
+    <button style="background-color:green;font-weight:bolder;"onclick="addToResult('9')">9</button>
+    <button style="background-color:green;font-weight:bolder;font-size: x-large;"onclick="addToResult('/')">/</button>
+    <button style="background-color:green;font-weight:bolder;"onclick="addToResult('4')">4</button>
+    <button style="background-color:green;font-weight:bolder;"onclick="addToResult('5')">5</button>
+    <button style="background-color:green;font-weight:bolder;"onclick="addToResult('6')">6</button>
+    <button style="background-color:green;font-weight:bolder;font-size: x-large;"onclick="addToResult('*')">*</button>
+    <button style="background-color:green;font-weight:bolder;"onclick="addToResult('1')">1</button>
+    <button style="background-color:green;font-weight:bolder;"onclick="addToResult('2')">2</button>
+    <button style="background-color:green;font-weight:bolder;"onclick="addToResult('3')">3</button>
+    <button style="background-color:green;font-weight:bolder;font-size: x-large;"onclick="addToResult('-')">-</button>
+    <button style="background-color:green;font-weight:bolder;"onclick="addToResult('0')">0</button>
+    <button style="background-color:green;font-weight:bolder;font-size: x-large;"onclick="addToResult('.')">.</button>
+    <button style="background-color:green;font-weight:bolder;font-size: x-large;"onclick="clearResult()">C</button>
+    <button style="background-color:green;font-weight:bolder;font-size: x-large;"onclick="addToResult('+')">+</button>
+    <button style="background-color:green;font-weight:bolder;font-size: x-large;"onclick="calculate()">=</button>
+  </div>
+  <script>
+    function addToResult(value) {
+  document.getElementById('result').value += value;
+}
+
+function clearResult() {
+  document.getElementById('result').value = '';
+}
+
+function calculate() {
+  const expression = document.getElementById('result').value;
+  try {
+    const result = eval(expression);
+    document.getElementById('result').value = result;
+  } catch (error) {
+    document.getElementById('result').value = 'Error';
+  }
+}
+  </script>
+</body>
+</html>
